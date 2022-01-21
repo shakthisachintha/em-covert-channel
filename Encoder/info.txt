@@ -1,0 +1,12 @@
+frame structure
+    preamble 8 
+    payload 42
+        3 chars (1 char 8 bit)
+        to represent one charcter 14 bits (with error correction)
+        14 * 3 = 42 bits payload
+    crc 8
+
+error correction code
+    hamming(7,4)
+    4 bits encoded into 7 bits
+
