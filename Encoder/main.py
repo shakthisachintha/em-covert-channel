@@ -41,11 +41,11 @@ def dataAvail() -> bool:
     return not data_queue.empty()
 
 
-def getInput():
-    while True:
-        message = str(input("Enter Message to Encode: "))
-        for c in message:
-            data_queue.put(c)
+# def getInput():
+#     while True:
+#         message = str(input("Enter Message to Encode: "))
+#         for c in message:
+#             data_queue.put(c)
 
 
 def sendData():
@@ -66,11 +66,25 @@ def sendData():
             ascii = ord(' ')
 
 
+def getInput():
+    message = str(input("Enter Message to Encode: "))
+    for c in message:
+        data_queue.put(c)
+    frames = []
+    while(dataAvail()):
+        stream = getData(charsPerFrame)
+        modu.modulateToMedium(stream)
+        frame = modu._prepareFrame(stream)
+        print(frame)
+        frames.append(frame)
+
+
 def sendPreamble():
     modu.sendPreambleCont()
 
-t1 = threading.Thread(target=sendData, args=()).start()
-t2 = threading.Thread(target=getInput, args=()).start()
+# t2 = threading.Thread(target=getInput, args=()).start()
 
+while True:
+    getInput()
 # sendPreamble()
-1010101001100001011100110110010001011011
+# 1010101001100001011100110110010001011011
