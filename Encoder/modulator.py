@@ -22,7 +22,7 @@ paddingChar = general_config['paddingCharacter']
 '''
 frame structure
 preamble - 8 bit
-data - 32 bit
+data - 42 bit
 crc - 8 bit 
 '''
 
