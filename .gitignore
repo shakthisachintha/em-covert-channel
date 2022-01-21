@@ -109,6 +109,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.DS_Store
+.raw
+.iq
+.bin
 
 # Spyder project settings
 .spyderproject
