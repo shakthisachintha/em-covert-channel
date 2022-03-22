@@ -95,11 +95,11 @@ class Modulator:
 
     def modulateToMedium(self, dataString: str) -> None:
         frame = self._prepareFrame(dataString)
+        print(frame)
         if (self._medium == modulateMedium.software):
-            for bit in frame:
-                print(bit, end = "")
+            pass
         elif (self._medium == modulateMedium.physical):
-                self._manchestorModulate(frame)
+            self._manchestorModulate(frame)
 
 
     def _manchestorModulate(self, bitStream: str) -> None:

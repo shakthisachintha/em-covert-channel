@@ -75,7 +75,6 @@ def getInput():
         stream = getData(charsPerFrame)
         modu.modulateToMedium(stream)
         frame = modu._prepareFrame(stream)
-        print(frame)
         frames.append(frame)
 
 
@@ -88,3 +87,4 @@ while True:
     getInput()
 # sendPreamble()
 # 1010101001100001011100110110010001011011
+#101010100001111100001111001101110000110011011010010101010101010111111110001111

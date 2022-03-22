@@ -4,9 +4,14 @@ frame structure
         3 chars (1 char 8 bit)
         to represent one charcter 14 bits (with error correction)
         14 * 3 = 42 bits payload
-    crc 8
+    crc 14
+        8 bit crc
+        after adding error correction code
+            2 x 4 bit chunks encoded into 7x2 
 
 error correction code
     hamming(7,4)
     4 bits encoded into 7 bits
 
+A sample frame contains preamble + payload + crc (the payload contains string 'shak')
+101010100001111100001111001101110000110011011010010101010101010111111110001111

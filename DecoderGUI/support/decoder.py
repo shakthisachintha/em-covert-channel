@@ -19,7 +19,7 @@ class Decoder:
         data = dataStream
         if (not self._crc.verifyCrc(data)):
             print("CRC Failed")
-            return "###"
+            # return "###"
         data = data[:-self._crc_len]
         ascii_bin_array = textwrap.wrap(data, 8)
         ascii_dec_array = []
