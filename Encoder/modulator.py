@@ -104,7 +104,7 @@ class Modulator:
 
     def _manchestorModulate(self, bitStream: str) -> None:
         bitEndTime = getCurrentTimeMillis()
-        print(bitStream)
+        # print(bitStream)
         bitTimeMillis = self._bitTimeMilis
         for bit in bitStream:
             bitEndTime +=  bitTimeMillis

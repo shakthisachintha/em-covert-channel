@@ -22,7 +22,7 @@ charsPerFrame = int(general_config['CharsPerFrame'])
 #endregion
 
 data_queue = queue.Queue()
-modu = Modulator(medium = modulationMedium, preamble=preamble, divisor=crcDivisor, bitTimeMilis=bitTime)
+modu = Modulator(medium = modulationMedium, preamble=preamble, divisor=crcDivisor, bitTimeMilis=bitTime, payloadSize=charsPerFrame)
 
 def getData(numOfChars: int) -> str:
     qsize = data_queue._qsize()
@@ -41,16 +41,8 @@ def dataAvail() -> bool:
     return not data_queue.empty()
 
 
-# def getInput():
-#     while True:
-#         message = str(input("Enter Message to Encode: "))
-#         for c in message:
-#             data_queue.put(c)
-
-
 def sendData():
     demod = Demodulator()
-    modu = Modulator(medium = modulationMedium, preamble=preamble, divisor=crcDivisor, bitTimeMilis=bitTime, payloadSize=charsPerFrame)
     while(True):
         time.sleep(int(interFrameDelay/1000))
         try:
